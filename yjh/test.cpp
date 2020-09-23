@@ -42,10 +42,10 @@ int denoise_histeq(const unsigned char *srcImage, unsigned char *dstImage, int w
             vector<char> tmp;
             for(int k=-3;k<=3;k++){
                 for(int m=-3;m<=3;m++){
-                tmp.push_back(src[i+k][j+m]);
+                tmp.push_back(src[i+k][j+m]);   // 获取以（i,j）为中心的像素矩阵，储存为向量方便排序tmp
                 }
             }
-            st(tmp,0, tmp.size()-1);
+            st(tmp,0, tmp.size()-1);            // 对tmp进行排序，取中间值为（i, j）新得像素值
             dst[i][j]=tmp[k_size*k_size/2];
         }
     }
@@ -56,18 +56,18 @@ int denoise_histeq(const unsigned char *srcImage, unsigned char *dstImage, int w
     for(int i=0;i<height;i++){
         for(int j=0;j<width;j++){
             int value = dst[i][j];
-            gray[value]++;
+            gray[value]++;  // 统计各灰度像素的个数
         }
     }
     for(int i=0;i<256;i++){
-        gray_p[i] = ((double)gray[i]/(width*height));
+        gray_p[i] = ((double)gray[i]/(width*height));   // 计算各灰度级的概率
     }
     gray_d[0]=gray_p[0];
     for(int i=1;i<256;i++){
-        gray_d[i] = gray_d[i-1]+gray_p[i];
+        gray_d[i] = gray_d[i-1]+gray_p[i];             // 计算各灰度级概率的累加值，最后一个灰度级的累计值为1
     }
     for(int i=1;i<256;i++){
-        gray_e[i]=char(255*gray_d[i]+0.5);
+        gray_e[i]=char(255*gray_d[i]+0.5);      // 根据映射关系求取像素值
     }
     for(int i=0;i<height;i++){
         for(int j=0;j<width;j++){
