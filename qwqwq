@@ -1,1 +1,41 @@
-print("IIII")
+d=int(input())
+shuzu=[]
+m,n,k,ans=[],[],[],[]
+for i in range(d):
+    [a, b,c] = [int(item) for item in input().split()]
+    line=[int(item) for item in input().split()]
+    shuzu.append(line)
+    n.append(a)
+    m.append(b)
+    k.append(c)
+
+for i in range(d):
+    flag_shu=0
+    if(k[i]!=2):
+        for j in range((n[i])):
+            if(shuzu[i][j]//k[i]==0):
+                flag_shu+=1
+        tmp=k[i]//2
+        if(tmp==0):
+            for j in range(n[i]):
+                if(shuzu[i][j]//k[i]==tmp):
+                    flag_shu+=1
+        if (flag_shu >= m[i]):
+            ans.append(1)
+        else:
+            ans.append(0)
+    else:
+        for e in range((n[i])):
+            for r in range(e+1,n[i]):
+                if((shuzu[i][e]+shuzu[i][r])//k[i]==0):
+                    flag_shu=1
+        if(flag_shu==1):
+            ans.append((1))
+        else:
+            ans.append(0)
+
+for i in range(d):
+    if(ans[i]==1):
+        print("Yes")
+    else:
+        print("No")
