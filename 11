@@ -14,7 +14,7 @@ for i in range(len(a)):
     j,tmp,n=0,0,0
     while n<d:
         if j<(b[i]):
-            if (j+k[i]-1)<b[i]:
+            if (j+k[i]-1)<=b[i]:
                 tmp+=1
                 n+=k[i]
                 j+=k[i]-1
