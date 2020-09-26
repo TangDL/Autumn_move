@@ -10,7 +10,10 @@ while True:
         break
 ans=[]
 for i in range(len(a)):
-    d=a[i]//v[i]
+    if a[i]%v[i]==0:
+        d = a[i] // v[i]
+    else:
+        d = a[i] // v[i]+1
     j,tmp,n=0,0,0
     while n<d:
         if j<(b[i]):
