@@ -1,0 +1,33 @@
+a,b,k,v=[],[],[],[]
+while True:
+    try:
+        [i, j, m, n] = [int(item) for item in input().split()]
+        a.append(i)
+        b.append(j)
+        k.append(m)
+        v.append(n)
+    except:
+        break
+ans=[]
+for i in range(len(a)):
+    if a[i]%v[i]==0:
+        d = a[i] // v[i]
+    else:
+        d = a[i] // v[i]+1
+    j,tmp,n=0,0,0
+    while n<d:
+        if j<(b[i]):
+            if (j+k[i]-1)<=b[i]:
+                tmp+=1
+                n+=k[i]
+                j+=k[i]-1
+            else:
+                tmp+=1
+                n+=b[i]-j+1
+                j=b[i]
+        else:
+            tmp+=1
+            n+=1
+    ans.append(tmp)
+for i in range(len(a)):
+    print(ans[i])
