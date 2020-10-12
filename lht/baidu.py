@@ -12,7 +12,7 @@ class Solution(object):
         for i in range(row):
             for j in range(col):
                 if i == 0 or j == 0:
-                    if lists[i][j] == 1:
+                    if lists[i][j] == 'M':
                         dp[i][j] = 1
                         res = 1
 
@@ -36,3 +36,4 @@ if __name__ == "__main__":
     # lists = [['M', 'M', 'M', 'M'], ['M', 'M', 'F', 'F'], ['F', 'M', 'M', 'M'], ['M', 'M', 'M', 'M'], ['M','M','M','M']]
     maxvalue = sol.getmax(lists)
     sys.stdout.write(str(maxvalue**2))
+
