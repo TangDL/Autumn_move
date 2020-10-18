@@ -9,7 +9,7 @@ int main(){
         string table,people;
         cin>>N>>table>>M>>people;
         priority_queue<int, vector<int>, greater<int> > pq0,pq1;
-        for(int i=0;i<N;i++){
+        for(int i=N-1;i>=0;i--){
             if(table[i]=='1'){
                 pq1.push(i+1);
             }
@@ -46,7 +46,11 @@ int main(){
     return 0;
 }
 
-//1
+//2
+//5
+//01102
+//6
+//MFMMFF
 //5
 //01102
 //6
