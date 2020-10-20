@@ -20,7 +20,7 @@ test = Solution()
 k = int(input())
 s = input()
 test.maxFreq(s, k)
-res = sorted(test.res)
+res = sorted(test.res, key=lambda i: len(i), reverse=True)
 if not res:
     print(-1)
 else:
