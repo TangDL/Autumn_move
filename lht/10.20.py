@@ -1,4 +1,6 @@
 import collections
+
+
 class Solution:
     def __init__(self):
         self.res = []
@@ -20,7 +22,8 @@ test = Solution()
 k = int(input())
 s = input()
 test.maxFreq(s, k)
-res = sorted(test.res, key=lambda i: len(i), reverse=True)
+res = sorted(test.res)
+res = sorted(res, key=lambda i: len(i), reverse=False)
 if not res:
     print(-1)
 else:
