@@ -1,5 +1,8 @@
+import sys
 n = int(input())
 arr = list(map(int, input().split()))
+
+
 def fun(arr, n):
     arr2 = sorted(arr)
     p, q = n-1, n-1
@@ -11,4 +14,6 @@ def fun(arr, n):
             while p >= 0 and arr[p] != arr2[q]:
                 p -= 1
     return q+1
-print(fun(arr, n))
+
+
+sys.stdout.write(str(fun(arr, n)))
