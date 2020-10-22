@@ -9,5 +9,7 @@ def num(n):
         elif i == 5:
             m -= 1
     return m
-
-print(num(n))
+r = 0
+for i in range(n+1):
+    r += num(i)
+print(r)

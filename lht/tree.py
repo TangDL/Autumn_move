@@ -35,7 +35,7 @@ class Solution:
         def preorder(root):
             if not root:
                 return
-            res.append(root.val)
+            res.append(str(root.val))
             preorder(root.left)
             preorder(root.right)
 
@@ -49,7 +49,7 @@ class Solution:
             if not root:
                 return
             inorder(root.left)
-            res.append(root.val)
+            res.append(str(root.val))
             inorder(root.right)
 
         res = list()
@@ -63,7 +63,7 @@ class Solution:
                 return
             postorder(root.left)
             postorder(root.right)
-            res.append(root.val)
+            res.append(str(root.val))
 
         res = list()
         postorder(root)
@@ -72,9 +72,9 @@ class Solution:
         return res
 
 test = Solution()
-res = []
-res.append(test.pre(MyTree.root))
-res.append(test.ino(MyTree.root))
-res.append(test.post(MyTree.root))
+preo = test.pre(MyTree.root)
+inor = test.ino(MyTree.root)
+posto = test.post(MyTree.root)
+res = '[['+','.join(preo)+','.join(inor)+','.join(posto)+']]'
 print(res)
 
