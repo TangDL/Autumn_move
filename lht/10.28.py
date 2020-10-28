@@ -8,6 +8,7 @@ class Solution:
         xp, yp = 0, 0
         direction = 0
         res = [str(matrix[xp][yp])]
+        matrix[xp][yp] = '#'
         while len(res)<row*col:
             tmpx = xp + x[direction%4]
             tmpy = yp + y[direction%4]
@@ -19,6 +20,7 @@ class Solution:
             else:
                 direction += 1
         return res
+
 
 m = list(input().split('#'))
 matrix = []
